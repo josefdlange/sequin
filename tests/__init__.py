@@ -190,8 +190,7 @@ class TestSetup(TestCase):
         db = SqliteDatabase(':memory:')
 
         if isinstance(db, SqliteDatabase):
-            print 'Skipping lock contention test on SQLite'
-            return
+            self.skipTest('Skipping lock contention test on SQLite')
 
         # Test only functional on non-SQLite DBs
         register_database(db)
